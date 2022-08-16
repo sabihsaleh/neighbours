@@ -1,8 +1,68 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<head>
+  <style>
+   
+    label{
+      display:inline-block;
+      width:300px;
+      margin-right:5px;
+      text-align:right;
+    }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    fieldset{
+      border:none;
+      width:500px;
+      margin:0px auto;
+    }
+    .password_requirements {
+      color: gray;
+    }
+
+    .signup_container {
+      margin-left:400px;
+      margin-top:30px;
+    }
+
+  </style>
+</head>
+
+<body>
+    @{
+        ViewData["Title"] = "Home Page";
+    }
+
+
+
+  <a href="/signin" id="signin">Sign In</a>
+  <div class="signup_container"> 
+    <h1>Sign Up</h1>
+      <form action="/users" method="post">
+        <label>Name</label>
+        <input type='text' id='name' name='name' placeholder='Name'/><br><br>
+        <label>Email</label>
+        <input type='email' id='email' name='email' placeholder='Email'/><br><br>
+        <label>Password</label>
+        <input type='password' id='password' name='password' placeholder='Password'/><br><br>
+        <label>Confirm Password</label>
+        <input type='password' id='confirm-password' name='confirm-password' placeholder='Confirm Password'/><br><br>
+        
+        <div class="password_requirements">
+          <p> 
+            <em> 
+              Password requirements:
+              <ul>
+                  <li>Must be 8 or more characters long</li>
+                  <li>Must include at least one capital letter</li>
+                  <li>Must include at least one lower-case letter</li>
+                  <li>Must include at least one number</li>
+                  <li>Must include at least one special character</li>
+              </ul>
+            </em>
+          </p>
+        </div>
+      @* <input type="file" name="ImageData" id="ImageData" onchange="fileCheck(this);"/>   *@
+      <input type='submit' id='submit' value='Submit'/>
+    </form>
+  </div>
+</body>
+
+

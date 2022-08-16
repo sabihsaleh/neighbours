@@ -5,30 +5,32 @@
 First, clone this repository. Then:
 
 - Install the .NET Entity Framework CLI
-  * `dotnet tool install --global dotnet-ef`
+  - `dotnet tool install --global dotnet-ef`
 - Create the database/s in `psql`
-  * `CREATE DATABASE neighbours_csharp_development;`
-  * `CREATE DATABASE neighbours_csharp_test;`
+  - `CREATE DATABASE neighbours;`
+  - `CREATE DATABASE neighbours_development;`
+  - `CREATE DATABASE neighbours_test;`
 - Run the migration to create the tables
-  * `cd` into `/Neighbours`
-  * `dotnet ef database update`
-  * `DATABASE_NAME=neighbours_csharp dotnet ef database update`
+  - `cd` into `/Neighbours`
+  - `dotnet ef database update`
+  - `DATABASE_NAME=neighbours dotnet ef database update`
 - Start the application, with the development database
-  * `DATABASE_NAME=neighbours_csharp_development dotnet watch run`
+  - `DATABASE_NAME=neighbours_development dotnet watch run`
 - Go to `http://localhost:5287/`
 
 ## Running the Tests
 
 - Install Chromedriver
-  * `brew install chromedriver`
+  - `brew install chromedriver`
 - Start the application, with the default (test) database
-  * `dotnet watch run`
+  - `dotnet watch run`
 - Open a second terminal session and run the tests
-  * `dotnet test`
+  - `dotnet test`
 
 ### Troubleshooting
 
 If you see a popup about not being able to open Chromedriver...
+
 - Go to **System Preferences > Security and Privacy > General**
 - There should be another message about Chromedriver there
 - If so, Click on **Allow Anyway**
@@ -38,15 +40,15 @@ If you see a popup about not being able to open Chromedriver...
 Changes are applied to the database programatically, using files called _migrations_, which live in the `/Migrations` directory. The process is as follows...
 
 - Change the model/s
-  * For example, you might want to add a title to the `Listings` model
-  * In which case, you would add a new field there
+  - For example, you might want to add a title to the `Listings` model
+  - In which case, you would add a new field there
 - Generate the migration file
-  * `cd` into `/Neighbours`
-  * Decide what you wan to call the migration file
-  * `AddTitleToListings` would work for this one
-  * `dotnet migrations add AddTitleToListings`
+  - `cd` into `/Neighbours`
+  - Decide what you wan to call the migration file
+  - `AddTitleToListings` would work for this one
+  - `dotnet ef migrations add AddTitleToListings`
 - Run the migration
-  * `dotnet ef database update`
+  - `dotnet ef database update`
 
 ### Troubleshooting
 
@@ -79,7 +81,7 @@ OR...
 - Rollback / undo the last migration
 - Then edit the migration file before re-running it
 
-How do you rollbacl a migration? Let's assume that you have two migrations, both of which have been applied.
+How do you rollback a migration? Let's assume that you have two migrations, both of which have been applied.
 
 1. CreateListingsAndUsers
 2. AddTitleToListings
@@ -89,7 +91,7 @@ To rollback the second, you again use `dotnet ef database update` but this time 
 ```shell
 ; dotnet ef database update CreateListingsAndUsers
 ```
+
 ### Created by Team CSharpers
 
 - Our Trello board https://trello.com/b/YRIgjUUX/final-project
-
