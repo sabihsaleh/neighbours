@@ -16,7 +16,7 @@ First, clone this repository. Then:
   - `DATABASE_NAME=neighbours dotnet ef database update`
 - Start the application, with the development database
   - `DATABASE_NAME=neighbours_development dotnet watch run`
-- Go to `http://localhost:5287/`
+- Go to `http://localhost:5123/`
 
 ## Running the Tests
 
