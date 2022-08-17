@@ -17,11 +17,16 @@ public class SessionsController : Controller
     [HttpGet]
     public IActionResult New()
     {
+        string message = HttpContext.Request.Query["message"];
         string errorInfo = HttpContext.Request.Query["error"];
         if(errorInfo == "invalidcredentials")
         {
           ViewBag.Message = "The credentials you have entered do not match our records. Try again or sign up to create an account.";
         }  
+        if(message == "newuser")
+        {
+          ViewBag.Message = "You have signed up successfully. Please sign in.";
+        }
         return View();
     }
 

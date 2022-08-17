@@ -46,7 +46,7 @@ public class UsersController : Controller
       {
         dbContext.Users.Add(new_user);
         dbContext.SaveChanges();
-        return new RedirectResult("/signin");
+        return new RedirectResult("/signin?message=newuser");
       }
 
     }
