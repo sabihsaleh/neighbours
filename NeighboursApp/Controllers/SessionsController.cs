@@ -48,4 +48,13 @@ public class SessionsController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
+    [Route("/search")]
+    [HttpGet]
+    public IActionResult Search()
+    {
+        return View();
+    }
+
+
 }
