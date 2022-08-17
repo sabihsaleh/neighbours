@@ -1,67 +1,90 @@
 ﻿<head>
+  @{
+      ViewData["Title"] = "Home Page";
+  }
   <style>
    
-    label{
+    label {
       display:inline-block;
-      width:300px;
+      width:200px;
       margin-right:5px;
       text-align:right;
     }
 
-    fieldset{
+    fieldset {
       border:none;
-      width:500px;
+      width:200px;
       margin:0px auto;
+    }
+
+    .form_input_fields {
+      margin-left:0; 
     }
     .password_requirements {
       color: gray;
     }
 
+    .people_planting {
+      width: 50%;
+    }
+
     .signup_container {
-      margin-left:400px;
+      margin-left:0px;
       margin-top:30px;
     }
 
+    #slogan {
+        margin-top: 0;
+        border-bottom: 0.2px groove;
+        padding-top: 20px;
+        padding-bottom: 34px;
+        font-style: italic;
+    }
   </style>
 </head>
 
 <body>
-    @{
-        ViewData["Title"] = "Home Page";
-    }
+  <div class="text-center">
+    <h1 id="slogan">Where good neighbours become good friends</h1>
+  </div>
 
+  <div class="homepage_container">
 
+    <div class="signup_container"> 
+      <h3>Sign Up</h3>
+        <form class="signup_form" action="/users" method="post">
+          <div class="form_input_fields">
+            <label>Name</label>
+            <input type='text' id='name' name='name' placeholder='Name'/><br><br>
+            <label>Email</label>
+            <input type='email' id='email' name='email' placeholder='Email'/><br><br>
+            <label>Password</label>
+            <input type='password' id='password' name='password' placeholder='Password'/><br><br>
+            <label>Confirm Password</label>
+            <input type='password' id='confirm-password' name='confirm-password' placeholder='Confirm Password'/><br><br>
+          </div>
 
-  <a href="/signin" id="signin">Sign In</a>
-  <div class="signup_container"> 
-    <h1>Sign Up</h1>
-      <form action="/users" method="post">
-        <label>Name</label>
-        <input type='text' id='name' name='name' placeholder='Name'/><br><br>
-        <label>Email</label>
-        <input type='email' id='email' name='email' placeholder='Email'/><br><br>
-        <label>Password</label>
-        <input type='password' id='password' name='password' placeholder='Password'/><br><br>
-        <label>Confirm Password</label>
-        <input type='password' id='confirm-password' name='confirm-password' placeholder='Confirm Password'/><br><br>
-        
-        <div class="password_requirements">
-          <p> 
-            <em> 
-              Password requirements:
-              <ul>
-                  <li>Must be 8 or more characters long</li>
-                  <li>Must include at least one capital letter</li>
-                  <li>Must include at least one lower-case letter</li>
-                  <li>Must include at least one number</li>
-                  <li>Must include at least one special character</li>
-              </ul>
-            </em>
-          </p>
-        </div>
-      @* <input type="file" name="ImageData" id="ImageData" onchange="fileCheck(this);"/>   *@
-      <input type='submit' id='submit' value='Submit'/>
-    </form>
+          <div class="password_requirements">
+            <p> 
+              <em> 
+                Password requirements:
+                <ul>
+                    <li>Must be 8 or more characters long</li>
+                    <li>Must include at least one capital letter</li>
+                    <li>Must include at least one lower-case letter</li>
+                    <li>Must include at least one number</li>
+                    <li>Must include at least one special character</li>
+                </ul>
+              </em>
+            </p>
+          </div>
+
+        @* <input type="file" name="ImageData" id="ImageData" onchange="fileCheck(this);"/>   *@
+        <input type='submit' id='submit' value='Submit'/>
+      </form>
+          <img class="people_planting" src="https://chopra.brightspotcdn.com/dims4/default/5ce9dc9/2147483647/strip/true/crop/693x390+61+0/resize/1200x675!/quality/90/?url=http%3A%2F%2Fchopra-brightspot.s3.amazonaws.com%2F24%2Fa8%2Ffaa072655ded01ab5619b910f567%2Fvolunteers.jpg"/>
+    
+    </div>
   </div>
 </body>
 
