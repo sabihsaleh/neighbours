@@ -17,6 +17,11 @@ public class SessionsController : Controller
     [HttpGet]
     public IActionResult New()
     {
+        string errorInfo = HttpContext.Request.Query["error"];
+        if(errorInfo == "invalidcredentials")
+        {
+          ViewBag.Message = "The credentials you have entered do not match our records. Try again or sign up to create an account.";
+        }  
         return View();
     }
 
@@ -29,10 +34,12 @@ public class SessionsController : Controller
       {
         HttpContext.Session.SetInt32("user_id", user.Id);
         return new RedirectResult("/search");
+        // return new RedirectResult("/");
+
       }
       else
       {
-        return new RedirectResult("/signin-error");
+        return new RedirectResult("/signin?error=invalidcredentials");
       }
     }
 
