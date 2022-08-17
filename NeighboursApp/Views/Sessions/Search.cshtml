@@ -1,0 +1,75 @@
+<head>
+  @{
+      ViewData["Title"] = "Search Page";
+  }
+  <style>
+
+    label {
+      display:inline-block;
+      width:200px;
+      margin-right:5px;
+      text-align:right;
+    }
+
+    fieldset {
+      border:none;
+      width:200px;
+      margin:0px auto;
+    }
+
+    .search_page_container {
+      padding: 60px auto 60px;
+      position: relative;
+    }
+
+    .people_planting {
+      width: 65%;
+      position: absolute;
+      top: 40px;
+      left: 500px;
+    }
+
+    .search_form_container {
+      margin-left:0px;
+      margin-top:100px;
+    }
+
+    .search_title {
+      margin-bottom: 20px;
+    }
+
+    #slogan {
+        margin-top: 0;
+        border-bottom: 0.2px groove;
+        padding-top: 20px;
+        padding-bottom: 34px;
+        font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="text-center">
+    <h1 id="slogan">Where good neighbours become good friends</h1>
+  </div>
+
+  <div class="search_page_container">
+
+    <div class="search_form_container"> 
+      <h5 class="search_title">Search</h5>
+        <form class="search_form" action="/results" method="post">
+          <div class="form_input_fields">
+            <label>Location</label>
+            <input type='text' id='location' name='location' placeholder='Where are you located?'/><br><br>
+            <label>Requirements</label>
+            <textarea type='text' id='' name='' placeholder='What are you looking for?'></textarea></textarea><br><br>
+          </div>
+          <input type='submit' id='submit' value='Submit'/>
+          <img class="people_planting" src="https://chopra.brightspotcdn.com/dims4/default/5ce9dc9/2147483647/strip/true/crop/693x390+61+0/resize/1200x675!/quality/90/?url=http%3A%2F%2Fchopra-brightspot.s3.amazonaws.com%2F24%2Fa8%2Ffaa072655ded01ab5619b910f567%2Fvolunteers.jpg" alt="people_planting"/>
+      </form>
+    
+    </div>
+  </div>
+</body>
+
+
