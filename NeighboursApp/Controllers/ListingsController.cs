@@ -15,15 +15,15 @@ public class ListingsController : Controller
         _logger = logger;
     }
 
-    [Route("/listings")]
-    [HttpGet]
-    public IActionResult Index() {
-      NeighboursDbContext dbContext = new NeighboursDbContext();
-      List<Listing> listings = dbContext.Listings.OrderByDescending(listing => listing.DateTimePosted).ToList();
-      ViewBag.Listings = listings;
-      // listings.Reverse();
-      return View();
-    }
+    // [Route("/listings")]
+    // [HttpGet]
+    // public IActionResult Index() {
+    //   NeighboursDbContext dbContext = new NeighboursDbContext();
+    //   List<Listing> listings = dbContext.Listings.OrderByDescending(listing => listing.DateTimePosted).ToList();
+    //   ViewBag.Listings = listings;
+    //   // listings.Reverse();
+    //   return View();
+    // }
 
     // [Route("/my-profile")]
     // [HttpGet]
@@ -39,18 +39,18 @@ public class ListingsController : Controller
     //   return View();
     // }
 
-    [Route("/listings")]
-    [HttpPost]
-    public RedirectResult Create(Listing post) {
-      int user_id = HttpContext.Session.GetInt32("user_id").Value;
-      listing.UserId = user_id;
-      listing.DateTimePosted = DateTime.UtcNow;
-      // listing.DateTimePosted.ToString("dddd, dd MMMM yyyy hh:mm tt");
-      NeighboursDbContext dbContext = new NeighboursDbContext();
-      dbContext.Listings.Add(post);
-      dbContext.SaveChanges();
-      return new RedirectResult("/listings");
-    }
+    // [Route("/listings")]
+    // [HttpPost]
+    // public RedirectResult Create(Listing post) {
+    //   int user_id = HttpContext.Session.GetInt32("user_id").Value;
+    //   listing.UserId = user_id;
+    //   listing.DateTimePosted = DateTime.UtcNow;
+    //   // listing.DateTimePosted.ToString("dddd, dd MMMM yyyy hh:mm tt");
+    //   NeighboursDbContext dbContext = new NeighboursDbContext();
+    //   dbContext.Listings.Add(post);
+    //   dbContext.SaveChanges();
+    //   return new RedirectResult("/listings");
+    // }
 
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

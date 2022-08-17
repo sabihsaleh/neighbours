@@ -11,7 +11,7 @@ First, clone this repository. Then:
   - `CREATE DATABASE neighbours_development;`
   - `CREATE DATABASE neighbours_test;`
 - Run the migration to create the tables
-  - `cd` into `/Neighbours`
+  - `cd` into `/NeighboursApp`
   - `dotnet ef database update`
   - `DATABASE_NAME=neighbours dotnet ef database update`
 - Start the application, with the development database
