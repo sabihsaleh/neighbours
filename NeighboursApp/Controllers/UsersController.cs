@@ -32,15 +32,15 @@ public class UsersController : Controller
       string confirm_password = HttpContext.Request.Form["confirm-password"].ToString();
       if(existing_user.Any())
       {
-        return new RedirectResult("/signup-error");
+        return new RedirectResult("/?error=existinguser");
       }
       else if(PasswordValidator.ValidatePassword(new_user.Password) == false)
         {
-          return new RedirectResult("/signup-password-error");
+          return new RedirectResult("/?error=password");
         }
       else if(new_user.Password != confirm_password)
         {
-          return new RedirectResult("/signup-password-matching-error");
+          return new RedirectResult("/?error=nonmatchingpassword");
         }
       else
       {

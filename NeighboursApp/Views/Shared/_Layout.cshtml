@@ -24,7 +24,15 @@
                         </li>
                     </ul>
                 </div>
-                <a class="nav-link text-dark" href="/signin" id="signin">Sign In</a>
+                @if(ViewBag.Name != null)
+                {
+                    <div>Hello, @ViewBag.Name!</div>
+                    <a class="nav-link text-dark" href="/signout" id="signout">Sign Out</a>
+                }
+                else
+                {
+                    <a class="nav-link text-dark" href="/signin" id="signin">Sign In</a>
+                }
                 @* <a href="/signin" id="signin">Sign In</a> *@
             </div>
         </nav>
