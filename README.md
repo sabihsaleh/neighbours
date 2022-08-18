@@ -87,8 +87,9 @@ How do you rollback a migration? Let's assume that you have two migrations, both
 
 To rollback the second, you again use `dotnet ef database update` but this time adding the name of the last 'good' migration. In this case, that would be `CreatedUsersTable`. So the command is...
 
-```shell
-`dotnet ef database update CreateUsersTable`
+
+- `dotnet ef database update CreateUsersTable`
+- then `dotnet ef migrations remove` to remove the the migration file you want to revert/rollback
 ```
 
 ### Created by Team CSharpers
