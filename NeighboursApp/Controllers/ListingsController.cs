@@ -74,6 +74,26 @@ public class ListingsController : Controller
       return View();
     }
 
+    [Route("/user-profile")]
+    [HttpGet]
+    public IActionResult UserProfile() {
+      NeighboursDbContext dbContext = new NeighboursDbContext();
+      if(HttpContext.Session.GetString("user_id") != null)
+      {
+          int current_user_id = HttpContext.Session.GetInt32("user_id").Value;
+          List<User> users1 = dbContext.Users.Where(user => user.Id == current_user_id).ToList();
+          ViewBag.Name = users1.FirstOrDefault().Name;
+      }
+      string string_user_id = HttpContext.Request.Query["user-id"].ToString();
+      int user_id = Convert.ToInt32(string_user_id);
+      Console.WriteLine(user_id);
+      List<Listing> listings = dbContext.Listings.Where(listing => listing.UserId == user_id).ToList();
+      List<User> users2 = dbContext.Users.Where(user => user.Id == user_id).ToList();
+      ViewBag.Listings = listings;
+      ViewBag.User = users2.FirstOrDefault();
+      return View();
+    }
+
     // [Route("/listings")]
     // [HttpPost]
     // public RedirectResult Create(Listing listing) {

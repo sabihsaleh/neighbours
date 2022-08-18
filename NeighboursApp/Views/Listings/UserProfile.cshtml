@@ -50,13 +50,13 @@
     <h1 id="slogan">Where good neighbours become good friends</h1>
   </div>
 
-  <h4 class="profile_username">@ViewBag.Name</h4><br><br>
+  <h4 class="profile_username">@ViewBag.User.Name</h4><br><br>
 
   <p>Email: @ViewBag.User.Email</p>
   <p>Contact number: @ViewBag.User.PhoneNumber</p>
   <p>Address: @ViewBag.User.Address</p>
 
-  <h6>My Listings</h6>
+  <h6>@ViewBag.User.Name's Listings</h6>
   <ul>
   @foreach (Listing listing in ViewBag.Listings)
   {
