@@ -41,11 +41,24 @@ Changes are applied to the database programatically, using files called _migrati
 
 - Add model/s
   - For example, you might want to add a `Listings` table
+  - We need to create a new table in the same way
 - Generate the migration file
   - `cd` into `/NeighboursApp`
   - Decide what you want to call the migration file
-  - `AddListingsTable` would work for this one
-  - `dotnet ef migrations add AddListingsTable`
+  - `CreateListingsTable` would work for this one
+  - `dotnet ef migrations add CreateListingsTable`
+- Run the migration
+  - `dotnet ef database update`
+
+- Change the model/s
+  * For example, you might want to add a title to the `Listing` model
+  * In which case, you would add a new field there
+
+- Generate the migration file
+  - `cd` into `/NeighboursApp`
+  - Decide what you wan to call the migration file
+  - `AddTitleToLisitings` would work for this one
+  - `dotnet ef migrations add AddTitleToListings`
 - Run the migration
   - `dotnet ef database update`
 
@@ -83,15 +96,16 @@ OR...
 How do you rollback a migration? Let's assume that you have two migrations, both of which have been applied.
 
 1. CreateUsersTable
-2. AddListingsTable
+2. CreateListingsTable
 
 To rollback the second, you again use `dotnet ef database update` but this time adding the name of the last 'good' migration. In this case, that would be `CreatedUsersTable`. So the command is...
 
-
 - `dotnet ef database update CreateUsersTable`
 - then `dotnet ef migrations remove` to remove the the migration file you want to revert/rollback
+
 ```
 
 ### Created by Team CSharpers
 
 - Our Trello board https://trello.com/b/YRIgjUUX/final-project
+```
