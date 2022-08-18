@@ -39,14 +39,13 @@ If you see a popup about not being able to open Chromedriver...
 
 Changes are applied to the database programatically, using files called _migrations_, which live in the `/Migrations` directory. The process is as follows...
 
-- Change the model/s
-  - For example, you might want to add a title to the `Listings` model
-  - In which case, you would add a new field there
+- Add model/s
+  - For example, you might want to add a `Listings` table
 - Generate the migration file
-  - `cd` into `/Neighbours`
-  - Decide what you wan to call the migration file
-  - `AddTitleToListings` would work for this one
-  - `dotnet ef migrations add AddTitleToListings`
+  - `cd` into `/NeighboursApp`
+  - Decide what you want to call the migration file
+  - `AddListingsTable` would work for this one
+  - `dotnet ef migrations add AddListingsTable`
 - Run the migration
   - `dotnet ef database update`
 
@@ -83,10 +82,10 @@ OR...
 
 How do you rollback a migration? Let's assume that you have two migrations, both of which have been applied.
 
-1. CreateListingsAndUsers
-2. AddTitleToListings
+1. CreateUsersTable
+2. AddListingsTable
 
-To rollback the second, you again use `dotnet ef database update` but this time adding the name of the last 'good' migration. In this case, that would be `CreateListingsAndUsers`. So the command is...
+To rollback the second, you again use `dotnet ef database update` but this time adding the name of the last 'good' migration. In this case, that would be `CreatedUsersTable`. So the command is...
 
 ```shell
 ; dotnet ef database update CreateListingsAndUsers
