@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 public class NeighboursDbContext : DbContext
 {
-    // public DbSet<Listings>? Listings { get; set; }
+    public DbSet<Listing>? Listings { get; set; }
     public DbSet<User>? Users { get; set; }
 
     public string? DbPath { get; }

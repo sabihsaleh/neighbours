@@ -43,7 +43,7 @@ Changes are applied to the database programatically, using files called _migrati
   - For example, you might want to add a title to the `Listings` model
   - In which case, you would add a new field there
 - Generate the migration file
-  - `cd` into `/Neighbours`
+  - `cd` into `/NeighboursApp`
   - Decide what you wan to call the migration file
   - `AddTitleToListings` would work for this one
   - `dotnet ef migrations add AddTitleToListings`
