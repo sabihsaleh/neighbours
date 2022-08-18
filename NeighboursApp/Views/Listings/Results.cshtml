@@ -28,8 +28,9 @@
         <p class="listed_requirements">Item/Service: <em>@listing.Item_Service</em></p>
         <p class="listed_description">Description: <em>@listing.Description</em></p>
         <p class="listed_price">Price: <em>£@listing.Price</em></p>
-        <form action="" method="">
-        <input type='submit' id='contact' value='Contact'/>
+        <form action="/user-profile" method="get">
+          <input type='hidden' id='user-id' value='@listing.UserId'/>
+          <input type='submit' id='contact' value='Contact'/>
         </form>
       </div>
     </li>

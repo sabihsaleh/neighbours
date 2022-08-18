@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using neighbours.Models;
@@ -11,9 +12,10 @@ using neighbours.Models;
 namespace neighbours.Migrations
 {
     [DbContext(typeof(NeighboursDbContext))]
-    partial class NeighboursDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220818151543_AddPhoneNumberAndAddressToUsers")]
+    partial class AddPhoneNumberAndAddressToUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
