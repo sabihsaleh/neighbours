@@ -24,14 +24,14 @@
 
     .password_requirements {
       color: gray;
-      margin: 50px auto;
+      margin: 50px auto 10px;
     }
 
     .people_planting {
-      width: 65%;
+      left: 500px;
       position: absolute;
       top: 40px;
-      left: 500px;
+      width: 65%;
     }
 
     .signup_container {
@@ -49,6 +49,14 @@
         padding-top: 20px;
         padding-bottom: 34px;
         font-style: italic;
+    }
+
+    #submit {
+      border: 1px solid;
+      border-radius: 8px;
+      margin-left: 10px;
+      padding: 5px 20px;
+
     }
   </style>
 </head>
@@ -72,6 +80,7 @@
             <input type='password' id='password' name='password' placeholder='Password'/><br><br>
             <label>Confirm Password</label>
             <input type='password' id='confirm-password' name='confirm-password' placeholder='Confirm Password'/><br><br>
+            <input type='submit' id='submit' value='Submit'/>
           </div>
 
           <div class="password_requirements">
@@ -90,7 +99,6 @@
           </div>
 
         @* <input type="file" name="ImageData" id="ImageData" onchange="fileCheck(this);"/>   *@
-        <input type='submit' id='submit' value='Submit'/>
       </form>
       <br>
       <h6 id="message" style="color:red">@ViewBag.Message</h6>

@@ -9,5 +9,5 @@ public class User
   public string? Email {get; set;}
   public string? Password {get; set;}
   // public byte[]? ProfileImage {get; set;}  
-  // public ICollection<Listings>? Listings {get; set;}
+  public ICollection<Listing>? Listings {get; set;}
 }
