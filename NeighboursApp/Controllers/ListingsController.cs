@@ -15,6 +15,42 @@ public class ListingsController : Controller
         _logger = logger;
     }
 
+    [Route("/search")]
+    [HttpGet]
+    public IActionResult Search()
+
+    {
+      if(HttpContext.Session.GetString("user_id") != null)
+        {
+            int user_id = HttpContext.Session.GetInt32("user_id").Value;
+            NeighboursDbContext dbContext = new NeighboursDbContext();
+            List<User> users = dbContext.Users.Where(user => user.Id == user_id).ToList();
+            ViewBag.Name = users.FirstOrDefault().Name;
+        }
+        return View();
+    }
+
+    [Route("/results")]
+    [HttpGet]
+    public IActionResult Results()
+
+    {
+      NeighboursDbContext dbContext = new NeighboursDbContext();
+      if(HttpContext.Session.GetString("user_id") != null)
+      {
+          int user_id = HttpContext.Session.GetInt32("user_id").Value;
+          List<User> users = dbContext.Users.Where(user => user.Id == user_id).ToList();
+          ViewBag.Name = users.FirstOrDefault().Name;
+      }
+      string location = HttpContext.Request.Query["location"];
+      string requirements = HttpContext.Request.Query["requirements"]; 
+      ViewBag.Location = location;
+      ViewBag.Requirements = requirements;
+      List<Listing> listings = dbContext.Listings.Where(listing => listing.Location == location && listing.Item_Service == requirements).ToList();      
+      ViewBag.Listings = listings;
+      return View();
+    }
+
     // [Route("/listings")]
     // [HttpGet]
     // public IActionResult Index() {
@@ -25,29 +61,28 @@ public class ListingsController : Controller
     //   return View();
     // }
 
-    // [Route("/my-profile")]
-    // [HttpGet]
-    // public IActionResult MyProfile() {
-    //   NeighboursDbContext dbContext = new NeighboursDbContext();
-    //   int user_id = HttpContext.Session.GetInt32("user_id").Value;
-    //   // IQueryable<Listing> my_listing = dbContext.Posts.Where(lsiting => listing.UserId == user_id);
-    //   List<Listing> listings = dbContext.Listings.Where(listing => listing.UserId == user_id).ToList();
-    //   List<User> users = dbContext.Users.Where(user => user.Id == user_id).ToList();
-    //   ViewBag.Listings = listings;
-    //   ViewBag.Name = users.FirstOrDefault().Name;
-    //   listings.Reverse();
-    //   return View();
-    // }
+    [Route("/my-profile")]
+    [HttpGet]
+    public IActionResult MyProfile() {
+      NeighboursDbContext dbContext = new NeighboursDbContext();
+      int user_id = HttpContext.Session.GetInt32("user_id").Value;
+      List<Listing> listings = dbContext.Listings.Where(listing => listing.UserId == user_id).ToList();
+      List<User> users = dbContext.Users.Where(user => user.Id == user_id).ToList();
+      ViewBag.Listings = listings;
+      ViewBag.Name = users.FirstOrDefault().Name;
+      ViewBag.User = users.FirstOrDefault();
+      return View();
+    }
 
     // [Route("/listings")]
     // [HttpPost]
-    // public RedirectResult Create(Listing post) {
+    // public RedirectResult Create(Listing listing) {
     //   int user_id = HttpContext.Session.GetInt32("user_id").Value;
     //   listing.UserId = user_id;
     //   listing.DateTimePosted = DateTime.UtcNow;
     //   // listing.DateTimePosted.ToString("dddd, dd MMMM yyyy hh:mm tt");
     //   NeighboursDbContext dbContext = new NeighboursDbContext();
-    //   dbContext.Listings.Add(post);
+    //   dbContext.Listings.Add(listing);
     //   dbContext.SaveChanges();
     //   return new RedirectResult("/listings");
     // }

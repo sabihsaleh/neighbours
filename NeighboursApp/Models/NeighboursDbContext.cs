@@ -32,10 +32,10 @@ public class NeighboursDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseNpgsql(@"Host=localhost;Username=postgres;Password=1234;Database=" + GetDatabaseName());
 
-    // protected override void OnModelCreating(ModelBuilder modelBuilder)
-    // {
-    //     modelBuilder.Entity<Listing>()
-    //       .Navigation(listing => listing.User)
-    //       .AutoInclude();
-    // }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+      modelBuilder.Entity<Listing>()
+        .Navigation(listing => listing.User)
+        .AutoInclude();
+    }
 }

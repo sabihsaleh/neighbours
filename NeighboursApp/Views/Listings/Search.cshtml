@@ -49,6 +49,14 @@
         padding-bottom: 34px;
         font-style: italic;
     }
+
+    #submit {
+      border: 1px solid;
+      border-radius: 8px;
+      margin-left: 10px;
+      padding: 5px 20px;
+    }
+
   </style>
 </head>
 
@@ -61,12 +69,12 @@
 
     <div class="search_form_container"> 
       <h5 class="search_title">Search</h5>
-      <form class="search_form" action="/results" method="post">
+      <form class="search_form" action="/results" method="get">
         <div class="form_input_fields">
           <label>Location</label>
           <input type='text' id='location' name='location' placeholder='Where are you located?'/><br><br>
           <label>Requirements</label>
-          <input type='text' id='' name='requirements' placeholder='What are you looking for?'/><br><br>
+          <input type='text' id='requirements' name='requirements' placeholder='What are you looking for?'/><br><br>
         </div>
         <input type='submit' id='submit' value='Submit'/>
       </form>

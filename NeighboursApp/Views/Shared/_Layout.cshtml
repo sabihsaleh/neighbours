@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/neighbours.styles.css" asp-append-version="true" />
     <style>
+        #my_profile {
+            border: 1px solid;
+            border-radius: 8px;
+            margin-left: 10px;
+        }
+
         #signin {
             border: 1px solid;
             border-radius: 8px;
@@ -40,6 +46,7 @@
                 @if(ViewBag.Name != null)
                 {
                     <div class="greet_user">Hello, @ViewBag.Name!</div>
+                    <a class="nav-link text-dark" href="/my-profile" id="my_profile">My Profile</a>
                     <a class="nav-link text-dark" href="/signout" id="signout">Sign Out</a>
                 }
                 else

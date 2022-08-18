@@ -1,0 +1,22 @@
+@* <div>
+  @ViewBag.Location </br></br>
+  @ViewBag.Requirements 
+</div> *@
+
+  <ul>
+  @foreach (Listing listing in ViewBag.Listings)
+  {
+    <li class="listing">
+      <div>
+        <p class="lister_name">@listing.User.Name</p>
+        <p class="listed_location">@listing.Location</p>
+        <p class="listed_requirements">@listing.Item_Service</p>
+        <p class="listed_description">@listing.Description</p>
+        <p class="listed_price">£@listing.Price</p>
+        <form action="" method="">
+        <input type='submit' id='contact' value='Contact'/>
+        </form>
+      </div>
+    </li>
+  }
+  </ul>

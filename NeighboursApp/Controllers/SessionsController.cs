@@ -61,19 +61,4 @@ public class SessionsController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
-    [Route("/search")]
-    [HttpGet]
-    public IActionResult Search()
-
-    {
-      if(HttpContext.Session.GetString("user_id") != null)
-        {
-            int user_id = HttpContext.Session.GetInt32("user_id").Value;
-            NeighboursDbContext dbContext = new NeighboursDbContext();
-            List<User> users = dbContext.Users.Where(user => user.Id == user_id).ToList();
-            ViewBag.Name = users.FirstOrDefault().Name;
-        }
-        return View();
-    }
-
 }
