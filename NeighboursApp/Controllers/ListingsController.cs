@@ -60,6 +60,7 @@ public class ListingsController : Controller
       List<Listing> listings = dbContext.Listings.Where(listing => listing.UserId == user_id).ToList();
       List<User> users = dbContext.Users.Where(user => user.Id == user_id).ToList();
       ViewBag.Listings = listings;
+      ViewBag.ListingsBool = listings.Any().ToString();
       ViewBag.Name = users.FirstOrDefault().Name;
       ViewBag.User = users.FirstOrDefault();
       return View();
