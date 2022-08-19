@@ -21,13 +21,18 @@ public class ListingsController : Controller
 
     {
       if(HttpContext.Session.GetString("user_id") != null)
-        {
-            int user_id = HttpContext.Session.GetInt32("user_id").Value;
-            NeighboursDbContext dbContext = new NeighboursDbContext();
-            List<User> users = dbContext.Users.Where(user => user.Id == user_id).ToList();
-            ViewBag.Name = users.FirstOrDefault().Name;
-        }
-        return View();
+      {
+          int user_id = HttpContext.Session.GetInt32("user_id").Value;
+          NeighboursDbContext dbContext = new NeighboursDbContext();
+          List<User> users = dbContext.Users.Where(user => user.Id == user_id).ToList();
+          ViewBag.Name = users.FirstOrDefault().Name;
+      }
+      string errorInfo = HttpContext.Request.Query["error"];
+      if(errorInfo == "blanksearch")
+      {
+        ViewBag.Error = "You haven't entered anything to search for!";
+      }
+      return View();
     }
 
     [Route("/results")]
@@ -43,11 +48,32 @@ public class ListingsController : Controller
           ViewBag.Name = users.FirstOrDefault().Name;
       }
       string location = HttpContext.Request.Query["location"];
-      string requirements = HttpContext.Request.Query["requirements"]; 
+      string requirements = HttpContext.Request.Query["requirements"];
       ViewBag.Location = location;
       ViewBag.Requirements = requirements;
-      List<Listing> listings = dbContext.Listings.Where(listing => listing.Location == location && listing.Item_Service == requirements).ToList();      
-      ViewBag.Listings = listings;
+      ViewBag.Listings = null;
+      if(location == "" && requirements == "")
+      {
+        return new RedirectResult("/search?error=blanksearch");
+      }
+      else if(requirements == "")
+      {
+        List<Listing> listings = dbContext.Listings.Where(listing => listing.Location == location).ToList();      
+        ViewBag.Listings = listings;
+        ViewBag.ListingsBool = listings.Any().ToString();
+      }
+      else if(location == "")
+      {
+        List<Listing> listings = dbContext.Listings.Where(listing => listing.Item_Service == requirements).ToList();      
+        ViewBag.Listings = listings;
+        ViewBag.ListingsBool = listings.Any().ToString();
+      }
+      else
+      {
+        List<Listing> listings = dbContext.Listings.Where(listing => listing.Location == location && listing.Item_Service == requirements).ToList();      
+        ViewBag.Listings = listings;
+        ViewBag.ListingsBool = listings.Any().ToString();
+      }
       return View();
     }
 

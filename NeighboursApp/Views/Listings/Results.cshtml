@@ -27,6 +27,20 @@
   @ViewBag.Requirements 
 </div> *@
 
+@* @if(ViewBag.Location == "" && ViewBag.Requirements == "")
+{
+  <p>You haven't entered anything.</p>
+}
+else if(ViewBag.Location == "")
+{
+  <p>You haven't entered a location.</p>
+}
+else if(ViewBag.Requirements == "")
+{
+  <p>You haven't entered an item or service.</p>
+} *@
+  @if(ViewBag.ListingsBool == "True")
+  {
   <ul>
   @foreach (Listing listing in ViewBag.Listings)
   {
@@ -45,3 +59,8 @@
     </li>
   }
   </ul>
+  }
+  else
+  {
+    <p>No results found for your search. <a  href="/search" id="search" >Search again?</a></p>
+  }
