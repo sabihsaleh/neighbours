@@ -27,6 +27,7 @@
     .signin_title {
       margin-bottom: 40px;
     }
+
     #message {
       margin-top: 30px;
       text-align: center;
@@ -42,14 +43,25 @@
       margin-left: 10px;
     }
 
+    #slogan {
+        margin-top: 0;
+        color: forestgreen;
+        border-bottom: 0.2px groove;
+        padding-top: 20px;
+        padding-bottom: 34px;
+        font-style: italic;
+    }
+
 
   </style>
 
 </head>
 
 <body> 
-  @* <a href="/" id="signup">Sign Up</a> *@
-  
+  <div class="text-center">
+    <h1 id="slogan">Where good neighbours become good friends</h1>
+  </div>
+
   <div class="signin_container"> 
     <form action="/signin" method="post">
     <h5 class="signin_title">Sign In</h5>

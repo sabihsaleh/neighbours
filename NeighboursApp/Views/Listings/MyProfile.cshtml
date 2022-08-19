@@ -3,31 +3,57 @@
     h2 {
       text-align: center;
     }
-    
+
+    h6 {
+      font-weight: bold;
+    }
+
     form {
       margin-bottom: 50px;
     }
 
     .listing {
-      border: none  blueviolet;
+      border: none;
       border-radius: 3px;
       box-shadow: 5px 5px 7px #a5d447;
       list-style-type: none;
       margin: 0 auto 30px;
       padding: 20px 100px;
       position: relative;
-      text-align: center;
+      text-align: left;
+    }
+
+    .profile_contact_details {
+      border: none;
+      border-radius: 3px;
+      box-shadow: 5px 5px 7px grey;
+      margin: 0 10px 30px;
+      padding: 20px 10px;
+      position: relative;
+      text-align: left;
+      width: 350px;
     }
 
     .profile_username {
       text-align: left;
     }
+
     @* .time_posted {
       position: absolute; 
       top: 24px !important;
       left: 5px !important;
       font-size: x-small;
     } *@
+
+    #slogan {
+    margin-top: 0;
+    color: forestgreen;
+    border-bottom: 0.2px groove;
+    padding-top: 20px;
+    padding-bottom: 34px;
+    font-style: italic;
+}
+
   </style>
 </head>
 
@@ -39,11 +65,12 @@
 
   <div class="profile_space_container">
     <h4 class="profile_username">@ViewBag.Name</h4><br><br>
-
-    <p>Email: @ViewBag.User.Email</p>
-    <p>Contact number: @ViewBag.User.PhoneNumber</p>
-    <p>Address: @ViewBag.User.Address</p>
-
+    <div class="profile_contact_details">
+      <h6>Contact Details</h6>
+      <p>Email: @ViewBag.User.Email</p>
+      <p>Contact number: @ViewBag.User.PhoneNumber</p>
+      <p>Address: @ViewBag.User.Address</p>
+    </div>
     @* <p>@ViewBag.ListingsBool</p> *@
     @* @if(ViewBag.ListingsBool == "true") *@
 
