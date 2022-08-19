@@ -1,6 +1,6 @@
 <head>
   <style>
-.listing {
+    .listing {
       border: none  blueviolet;
       border-radius: 3px;
       box-shadow: 5px 5px 7px #a5d447;
@@ -10,14 +10,20 @@
       position: relative;
       text-align: center;
     }
-     #contact {
-      background-color: white;
-      color: forestgreen;
-      border: 1px solid;
-      padding: 5px 20px;
-      text-decoration: none;
-      border-radius: 8px;
-      margin-left: 10px;
+
+    .results_title {
+      color: #004010;
+      margin-bottom: 20px;
+    }
+
+    #contact {
+    background-color: white;
+    color: forestgreen;
+    border: 1px solid;
+    padding: 5px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-left: 10px;
     }
 
     #slogan {
@@ -31,6 +37,11 @@
 
   </style>
 </head>  
+
+<body>
+  <div class="text-center">
+    <h1 id="slogan">Where good neighbours become good friends</h1>
+  </div>
 
 @* <div>
   @ViewBag.Location </br></br>
@@ -49,6 +60,10 @@ else if(ViewBag.Requirements == "")
 {
   <p>You haven't entered an item or service.</p>
 } *@
+
+<div>
+  <h5 class="results_title">Results</h5>
+
   @if(ViewBag.ListingsBool == "True")
   {
   <ul>
@@ -74,3 +89,5 @@ else if(ViewBag.Requirements == "")
   {
     <p>No results found for your search. <a  href="/search" id="search" >Search again?</a></p>
   }
+</div>
+</body>
