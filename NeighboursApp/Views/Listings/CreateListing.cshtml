@@ -34,16 +34,17 @@
       width: 50%;
     }
 
-    .signup_container {
+    .create_listing_container{
       margin-left:0px;
       margin-top:20px;
     }
 
-    .signup_title {
+    .create_listing_title {
       margin-bottom: 20px;
     }
 
     #slogan {
+        color: forestgreen;
         margin-top: 0;
         border-bottom: 0.2px groove;
         padding-top: 20px;
@@ -52,6 +53,8 @@
     }
 
     #submit {
+      background-color: white;
+      color: forestgreen;
       border: 1px solid;
       border-radius: 8px;
       margin-left: 10px;
@@ -73,13 +76,13 @@
         <form class="create_listing_form" action="/create-listing" method="post">
           <div class="form_input_fields">
             <label>Item/Service</label>
-            <input type='text' id='item_service' name='item_service' placeholder='What are you offering?' required/><br><br>
+            <input type='text' size="25" id='item_service' name='item_service' placeholder='What are you offering?' required/><br><br>
             <label>Description</label>
-            <input type='description' id='description' name='description' placeholder='Give a brief description...' required/><br><br>
+            <input type='description' size="25" id='description' name='description' placeholder='Give a brief description...' required/><br><br>
             <label>Location</label>
-            <input type='text' id='location' name='location' placeholder='Where are you based?' required/><br><br>
+            <input type='text' size="25" id='location' name='location' placeholder='Where are you based?' required/><br><br>
             <label>Price</label>
-            <input type='text' id='price' name='price' placeholder='Are you charging for this item/service? If so, how much?' required/><br><br>
+            <input type='text' id='price' size="25" name='price' placeholder='How much are you charging?' required/><br><br>
             <input type='submit' id='submit' value='Create Listing'/>
           </div>
 

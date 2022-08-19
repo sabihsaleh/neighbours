@@ -48,6 +48,7 @@
 
     #slogan {
         margin-top: 0;
+        color: forestgreen;
         border-bottom: 0.2px groove;
         padding-top: 20px;
         padding-bottom: 34px;
@@ -55,10 +56,13 @@
     }
 
     #submit {
+      background-color: white;
+      color: forestgreen;
       border: 1px solid;
+      padding: 5px 20px;
+      text-decoration: none;
       border-radius: 8px;
       margin-left: 10px;
-      padding: 5px 20px;
     }
 
   </style>
@@ -76,9 +80,9 @@
       <form class="search_form" action="/results" method="get">
         <div class="form_input_fields">
           <label>Location</label>
-          <input type='text' id='location' name='location' placeholder='Where are you located?'/><br><br>
+          <input type='text' size="22" id='location' name='location' placeholder='Where are you located?'/><br><br>
           <label>Requirements</label>
-          <input type='text' id='requirements' name='requirements' placeholder='What are you looking for?'/><br><br>
+          <input type='text' size="22" id='requirements' name='requirements' placeholder='What are you looking for?'/><br><br>
         </div>
         <input type='submit' id='submit' value='Submit'/>
       </form>
