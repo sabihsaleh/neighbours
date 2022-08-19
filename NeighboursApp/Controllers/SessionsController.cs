@@ -27,6 +27,10 @@ public class SessionsController : Controller
         {
           ViewBag.SuccessMessage = "You have signed up successfully. Please sign in.";
         }
+        else if(message == "signout")
+        {
+          ViewBag.SuccessMessage = "You have been signed out.";
+        }
         return View();
     }
 
@@ -50,9 +54,9 @@ public class SessionsController : Controller
 
     [Route("/signout")]
     [HttpGet]
-    public IActionResult Clear() {
+    public RedirectResult Clear() {
       HttpContext.Session.Clear();
-      return View();
+      return new RedirectResult("/signin?message=signout");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -12,6 +12,17 @@
       width: 500px;
     }
 
+    .listing {
+      border: none  blueviolet;
+      border-radius: 3px;
+      box-shadow: 5px 5px 7px #a5d447;
+      list-style-type: none;
+      margin: 0 auto 30px;
+      padding: 20px 100px;
+      position: relative;
+      text-align: center;
+    }
+
     .post {
       border: none  blueviolet;
       border-radius: 3px;
@@ -62,10 +73,10 @@
   {
     <li class="listing">
       <div>
-        <p class="listed_location">@listing.Location</p>
-        <p class="listed_requirements">@listing.Item_Service</p>
-        <p class="listed_description">@listing.Description</p>
-        <p class="listed_price">£@listing.Price</p>
+        <p class="listed_location">Location: <em>@listing.Location</em></p>
+        <p class="listed_requirements">Item/Service: <em>@listing.Item_Service</em></p>
+        <p class="listed_description">Description: <em>@listing.Description</em></p>
+        <p class="listed_price">Price: <em>@listing.Price</em></p>
       </div>
     </li>
   }

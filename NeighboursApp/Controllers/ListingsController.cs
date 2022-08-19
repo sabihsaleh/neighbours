@@ -51,15 +51,6 @@ public class ListingsController : Controller
       return View();
     }
 
-    // [Route("/listings")]
-    // [HttpGet]
-    // public IActionResult Index() {
-    //   NeighboursDbContext dbContext = new NeighboursDbContext();
-    //   List<Listing> listings = dbContext.Listings.OrderByDescending(listing => listing.DateTimePosted).ToList();
-    //   ViewBag.Listings = listings;
-    //   // listings.Reverse();
-    //   return View();
-    // }
 
     [Route("/my-profile")]
     [HttpGet]
@@ -92,18 +83,31 @@ public class ListingsController : Controller
       return View();
     }
 
-    // [Route("/listings")]
-    // [HttpPost]
-    // public RedirectResult Create(Listing listing) {
-    //   int user_id = HttpContext.Session.GetInt32("user_id").Value;
-    //   listing.UserId = user_id;
-    //   listing.DateTimePosted = DateTime.UtcNow;
-    //   // listing.DateTimePosted.ToString("dddd, dd MMMM yyyy hh:mm tt");
-    //   NeighboursDbContext dbContext = new NeighboursDbContext();
-    //   dbContext.Listings.Add(listing);
-    //   dbContext.SaveChanges();
-    //   return new RedirectResult("/listings");
-    // }
+    [Route("/create-listing")]
+    [HttpGet]
+    public IActionResult CreateListing() {
+      if(HttpContext.Session.GetString("user_id") != null)
+      {
+        int current_user_id = HttpContext.Session.GetInt32("user_id").Value;
+        NeighboursDbContext dbContext = new NeighboursDbContext();
+        List<User> currentuser = dbContext.Users.Where(user => user.Id == current_user_id).ToList();
+        ViewBag.Name = currentuser.FirstOrDefault().Name;
+      }
+      return View();
+    }
+
+    [Route("/create-listing")]
+    [HttpPost]
+    public RedirectResult Create(Listing listing) {
+      int user_id = HttpContext.Session.GetInt32("user_id").Value;
+      listing.UserId = user_id;
+      // listing.DateTimePosted = DateTime.UtcNow;
+      // listing.DateTimePosted.ToString("dddd, dd MMMM yyyy hh:mm tt");
+      NeighboursDbContext dbContext = new NeighboursDbContext();
+      dbContext.Listings.Add(listing);
+      dbContext.SaveChanges();
+      return new RedirectResult("/my-profile");
+    }
 
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
