@@ -4,7 +4,7 @@
       display:inline-block;
       margin-right:5px;
       text-align:right;
-      width:70px;
+      width:80px;
     }
 
     fieldset{
@@ -15,11 +15,34 @@
 
     form {
       margin-top: 30px;
+      margin-left: 500px;
+      width: auto;
     }
 
-    .signin_container {
+    @* .signin_container {
       margin-left: 500px;
       margin-top: 30px;
+    } *@
+
+    .signin_title {
+      color: #004010;
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+
+    #message {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+
+    #slogan {
+        margin-top: 0;
+        color: forestgreen;
+        border-bottom: 0.2px groove;
+        padding-top: 20px;
+        padding-bottom: 34px;
+        font-style: italic;
     }
 
     #submit {
@@ -30,29 +53,37 @@
       text-decoration: none;
       border-radius: 8px;
       margin-left: 10px;
+      transition: all 200ms ease-in-out;       
     }
 
+    #submit:hover {
+      background-color: #7cba00;
+      color: white;
+      cursor: pointer;
+    }
 
   </style>
 
 </head>
 
 <body> 
-  @* <a href="/" id="signup">Sign Up</a> *@
-  
+  <div class="text-center">
+    <h1 id="slogan">Where good neighbours become good friends</h1>
+  </div>
+
   <div class="signin_container"> 
-    <h5>Sign In</h5>
     <form action="/signin" method="post">
+    <h5 class="signin_title">Sign In</h5>
       <label>Email</label>
       <input type='email' id='email' name='email' placeholder='Email' required/><br><br>
       <label>Password</label>
       <input type='password' id='password' name='password' placeholder='Password' required/><br><br>
       <input type='submit' id='submit' value='Sign In'/>
     </form>
+
     <br>
       <h6 id="message" style="color:red">@ViewBag.ErrorMessage</h6>
       <h6 id="message" style="color:green">@ViewBag.SuccessMessage</h6>
-
     <br>
   </div>
 </body>

@@ -1,57 +1,60 @@
 <head>
-  <style>
-    h2 {
-      text-align: center;
+  <style> 
+    h6 {
+      color: #004010;
+      font-weight: bold;
     }
+
     form {
       margin-bottom: 50px;
     }
 
-    textarea {
-      resize: auto;
-      width: 500px;
-    }
-
     .listing {
-      border: none  blueviolet;
+      border: none;
       border-radius: 3px;
       box-shadow: 5px 5px 7px #a5d447;
       list-style-type: none;
       margin: 0 auto 30px;
       padding: 20px 100px;
       position: relative;
-      text-align: center;
+      text-align: left;
     }
 
-    .post {
-      border: none  blueviolet;
+    .profile_contact_details {
+      border: none;
       border-radius: 3px;
-      box-shadow: 5px 5px 7px rgb(150
-      , 122, 168);
-      list-style-type: none;
-      margin: 0 auto 30px;
-      padding: 20px 100px;
+      box-shadow: 5px 5px 7px grey;
+      margin: 0 10px 30px;
+      padding: 20px 10px;
       position: relative;
-      text-align: center;
+      text-align: left;
+      width: 350px;
     }
 
-    .poster_name {
-      color: #5d0b93;
-      position: absolute;
-      top: 0px !important;
-      left: 0px !important;
+    .profile_space_container {
     }
 
     .profile_username {
+      color: #004010;
       text-align: left;
     }
-    .time_posted {
+
+    @* .time_posted {
       position: absolute; 
       top: 24px !important;
       left: 5px !important;
       font-size: x-small;
- 
+    } *@
+
+    #slogan {
+    margin-top: 0;
+    color: forestgreen;
+    border-bottom: 0.2px groove;
+    padding-top: 20px;
+    padding-bottom: 34px;
+    font-style: italic;
     }
+
   </style>
 </head>
 
@@ -61,34 +64,37 @@
     <h1 id="slogan">Where good neighbours become good friends</h1>
   </div>
 
-  <h4 class="profile_username">@ViewBag.Name</h4><br><br>
+  <div class="profile_space_container">
+    <h4 class="profile_username">@ViewBag.Name</h4><br><br>
+    <div class="profile_contact_details">
+      <h6>Contact Details</h6>
+      <p>Email: @ViewBag.User.Email</p>
+      <p>Contact number: @ViewBag.User.PhoneNumber</p>
+      <p>Address: @ViewBag.User.Address</p>
+    </div>
+    @* <p>@ViewBag.ListingsBool</p> *@
+    @* @if(ViewBag.ListingsBool == "true") *@
 
-  <p>Email: @ViewBag.User.Email</p>
-  <p>Contact number: @ViewBag.User.PhoneNumber</p>
-  <p>Address: @ViewBag.User.Address</p>
-
-  @* <p>@ViewBag.ListingsBool</p> *@
-  @* @if(ViewBag.ListingsBool == "true") *@
-  
-  @if(ViewBag.ListingsBool == "True")
-  {
-    <h6>My Listings</h6> 
-    <ul>
-    @foreach (Listing listing in ViewBag.Listings)
+    @if(ViewBag.ListingsBool == "True")
     {
-      <li class="listing">
-        <div>
-          <p class="listed_location">Location: <em>@listing.Location</em></p>
-          <p class="listed_requirements">Item/Service: <em>@listing.Item_Service</em></p>
-          <p class="listed_description">Description: <em>@listing.Description</em></p>
-          <p class="listed_price">Price: <em>@listing.Price</em></p>
-        </div>
-      </li>
+      <h6>My Listings</h6> 
+      <ul>
+      @foreach (Listing listing in ViewBag.Listings)
+      {
+        <li class="listing">
+          <div>
+            <p class="listed_location">Location: <em>@listing.Location</em></p>
+            <p class="listed_requirements">Item/Service: <em>@listing.Item_Service</em></p>
+            <p class="listed_description">Description: <em>@listing.Description</em></p>
+            <p class="listed_price">Price: <em>@listing.Price</em></p>
+          </div>
+        </li>
+      }
+      </ul>
     }
-    </ul>
-  }
-  else
-  {
-    <h6 class="create_listing_message"><a  href="/create-listing" id="create_listing" >Add a listing</a></h6>
-  }
+    else
+    {
+      <h6 class="create_listing_message"><a  href="/create-listing" id="create_listing" >Add a listing</a></h6>
+    }
+  </div>
 </body>
