@@ -1,0 +1,102 @@
+<head>
+  @{
+      ViewData["Title"] = "Search Page";
+  }
+  <style>
+
+    label {
+      display:inline-block;
+      margin-right:5px;
+      text-align:right;
+      width:100px;
+    }
+
+    fieldset {
+      border:none;
+      margin:0px auto;
+      width:200px;
+    }
+
+    .create_listing_message {
+      font-size: 22px;
+      margin-top: 100px;
+    }
+    .form_input_fields {
+      margin: 40px auto;
+    }
+
+    .search_page_container {
+      padding: 60px auto 60px;
+      position: relative;
+    }
+
+    .people_planting {
+      left: 528px;
+      position: absolute;
+      top: 45px;
+      width: 700px;
+    }
+
+    .search_form_container {
+      margin-left:0px;
+      margin-top:20px;
+    }
+
+    .search_title {
+      color: #004010;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    #slogan {
+        margin-top: 0;
+        color: forestgreen;
+        border-bottom: 0.2px groove;
+        padding-top: 20px;
+        padding-bottom: 34px;
+        font-style: italic;
+    }
+
+    #submit {
+      background-color: white;
+      border: 1px solid;
+      border-radius: 8px;
+      color: forestgreen;
+      padding: 5px 20px;
+      text-decoration: none;
+      transition: all 200ms ease-in-out;       
+    }
+
+    #submit:hover {
+      background-color: #7cba00;
+      color: white;
+      cursor: pointer;
+    }
+
+
+      
+
+  </style>
+</head>
+
+<body>
+  <div class="text-center">
+    <h1 id="slogan">Where good neighbours become good friends</h1>
+  </div>
+
+  <div class="edit_details_page_container">
+
+    <div class="edit_details_form_container"> 
+      <h5 class="edit_details_title">Edit Details</h5>
+      <form class="edit_details_form" action="/edit-details" method="get">
+        <div class="form_input_fields">
+          <label>Postcode</label>
+          <input type='text' size="22" id='postcode' name='postcode' placeholder='Enter your postcode'/><br><br>
+        </div>
+        <input type='submit' id='submit' value='Search for address'/>
+      </form>
+    </div>
+  </div>
+</body>
+
+
