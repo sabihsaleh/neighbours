@@ -1,6 +1,6 @@
 <head>
   @{
-      ViewData["Title"] = "Results Page";
+      ViewData["Title"] = "All Results Page";
   }
   <style>
     .lister_name {
@@ -77,11 +77,8 @@ else if(ViewBag.Requirements == "")
 } *@
 
 <div>
-  <h5 class="results_title">Results</h5>
+  <h5 class="results_title">All Results</h5>
 
-  @if(ViewBag.ListingsBool == "True")
-  {
-  <ul>
   @foreach (Listing listing in ViewBag.Listings)
   {
     <li class="listing">
@@ -98,10 +95,6 @@ else if(ViewBag.Requirements == "")
     </li>
   }
   </ul>
-  }
-  else
-  {
-    <p>No results found for your search. <a  href="/search" id="search" >Search again?</a></p>
-  }
+
 </div>
 </body>

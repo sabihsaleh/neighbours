@@ -8,7 +8,6 @@ public class Listing
   public string? Item_Service {get; set;}
   public string? Description {get; set;}
   public string? Location {get; set;}
-  public string? Price {get; set;}
   public int UserId {get; set;}
   public User? User {get; set;}
  

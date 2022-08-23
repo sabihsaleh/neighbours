@@ -54,7 +54,7 @@ public class ListingsController : Controller
       ViewBag.Listings = null;
       if(location == "" && requirements == "")
       {
-        return new RedirectResult("/search?error=blanksearch");
+        return new RedirectResult("/listings-all");
       }
       else if(requirements == "")
       {
@@ -74,6 +74,23 @@ public class ListingsController : Controller
         ViewBag.Listings = listings;
         ViewBag.ListingsBool = listings.Any().ToString();
       }
+      return View();
+    }
+
+    [Route("/listings-all")]
+    [HttpGet]
+    public IActionResult AllListings()
+
+    {
+      NeighboursDbContext dbContext = new NeighboursDbContext();
+      if(HttpContext.Session.GetString("user_id") != null)
+      {
+          int user_id = HttpContext.Session.GetInt32("user_id").Value;
+          List<User> users = dbContext.Users.Where(user => user.Id == user_id).ToList();
+          ViewBag.Name = users.FirstOrDefault().Name;
+      }
+        List<Listing> listings = dbContext.Listings.ToList();      
+        ViewBag.Listings = listings;
       return View();
     }
 

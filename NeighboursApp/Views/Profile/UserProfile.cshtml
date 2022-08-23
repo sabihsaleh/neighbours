@@ -67,9 +67,7 @@
     <h4 class="profile_username">@ViewBag.User.Name</h4><br><br>
     <div class="profile_contact_details">
       <h6>Contact Details</h6>
-      <p>Email: @ViewBag.User.Email</p>
       <p>Contact number: @ViewBag.User.PhoneNumber</p>
-      <p>Address: @ViewBag.User.Address</p>
     </div>
 
   <h6>@ViewBag.User.Name's Listings</h6>
@@ -82,7 +80,6 @@
         <p class="listed_location">Location: <em>@listing.Location</em></p>
         <p class="listed_requirements">Item/Service: <em>@listing.Item_Service</em></p>
         <p class="listed_description">Description: <em>@listing.Description</em></p>
-        <p class="listed_price">Price: <em>@listing.Price</em></p>
       </div>
     </li>
   }
