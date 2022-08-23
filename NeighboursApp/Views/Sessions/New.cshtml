@@ -65,6 +65,27 @@
       cursor: pointer;
     }
 
+     #signup {
+      background-color: white;
+      border: 1px solid;
+      border-radius: 8px;
+      color: forestgreen;
+      margin-left: 10px;
+      padding: 5px 20px;
+      text-decoration: none;
+      transition: all 200ms ease-in-out;       
+    }
+
+    #signup:hover {
+      background-color: #7cba00;
+      color: white;
+      cursor: pointer;
+    }
+
+    .no_account {
+      margin-top: 50px;
+    }
+
   </style>
 
 </head>
@@ -83,6 +104,7 @@
       <input type='password' id='password' name='password' placeholder='Password' required/><br><br>
       <input type='submit' id='submit' value='Sign In'/>
     </form>
+    <p class="no_account">Don't have an account yet? <a  href="/" id="signup" >Sign Up</a></p>
 
     <br>
       <h6 id="message" style="color:red">@ViewBag.ErrorMessage</h6>
