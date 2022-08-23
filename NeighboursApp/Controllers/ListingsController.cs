@@ -58,19 +58,19 @@ public class ListingsController : Controller
       }
       else if(requirements == "")
       {
-        List<Listing> listings = dbContext.Listings.Where(listing => listing.Location == location).ToList();      
+        List<Listing> listings = dbContext.Listings.Where(listing => listing.Location.ToLower().Contains(location.ToLower())).ToList();      
         ViewBag.Listings = listings;
         ViewBag.ListingsBool = listings.Any().ToString();
       }
       else if(location == "")
       {
-        List<Listing> listings = dbContext.Listings.Where(listing => listing.Item_Service == requirements).ToList();      
+        List<Listing> listings = dbContext.Listings.Where(listing => listing.Item_Service.ToLower().Contains(requirements.ToLower())).ToList();      
         ViewBag.Listings = listings;
         ViewBag.ListingsBool = listings.Any().ToString();
       }
       else
       {
-        List<Listing> listings = dbContext.Listings.Where(listing => listing.Location == location && listing.Item_Service == requirements).ToList();      
+        List<Listing> listings = dbContext.Listings.Where(listing => listing.Location.ToLower().Contains(location.ToLower()) && listing.Item_Service.ToLower().Contains(requirements.ToLower())).ToList();      
         ViewBag.Listings = listings;
         ViewBag.ListingsBool = listings.Any().ToString();
       }

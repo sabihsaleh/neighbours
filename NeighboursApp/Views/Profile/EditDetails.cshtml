@@ -47,6 +47,10 @@
       font-size: 20px;
       margin-bottom: 20px;
     }
+    #message {
+      margin-top: 30px;
+      text-align: center;
+    }
 
     #slogan {
         margin-top: 0;
@@ -56,6 +60,7 @@
         padding-bottom: 34px;
         font-style: italic;
     }
+  
 
     #submit {
       background-color: white;
@@ -85,7 +90,7 @@
   </div>
 
   <div class="edit_details_page_container">
-
+        <h6 id="message" style="color:green">@ViewBag.Message</h6>
     <div class="edit_details_form_container"> 
       <h5 class="edit_details_title">Edit Details</h5>
       <form class="edit_details_form" action="/edit-details/addresses" method="get">

@@ -42,7 +42,15 @@ public class SessionsController : Controller
       if(user != null && user.Password == password)
       {
         HttpContext.Session.SetInt32("user_id", user.Id);
-        return new RedirectResult("/search");
+        if(user.Address == null || user.PhoneNumber == null)
+        {
+          return new RedirectResult("/edit-details?message=incomplete");
+        }
+        else 
+        {
+          return new RedirectResult("/search");
+        }
+        
         // return new RedirectResult("/");
 
       }
