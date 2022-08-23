@@ -49,8 +49,14 @@ public class ProfileController : Controller
 
     [Route("/edit-details")]
     [HttpGet]
-    public IActionResult EditDetails() {
+    public IActionResult EditDetails() 
+    {
       NeighboursDbContext dbContext = new NeighboursDbContext();
+      string message = HttpContext.Request.Query["message"];
+      if(message == "incomplete")
+      {
+        ViewBag.Message = "Please complete your profile to continue";
+      }
       if(HttpContext.Session.GetString("user_id") != null)
       {
           int current_user_id = HttpContext.Session.GetInt32("user_id").Value;
