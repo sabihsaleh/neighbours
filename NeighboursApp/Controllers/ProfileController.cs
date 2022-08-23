@@ -57,10 +57,27 @@ public class ProfileController : Controller
           List<User> currentuser = dbContext.Users.Where(user => user.Id == current_user_id).ToList();
           ViewBag.Name = currentuser.FirstOrDefault().Name;
       }
-      string postcode = HttpContext.Request.Query["postcode"];
-      Console.WriteLine(postcode);
       return View();
     }
+
+    [Route("/edit-details/addresses")]
+    [HttpGet]
+    public IActionResult SelectAddress() {
+      NeighboursDbContext dbContext = new NeighboursDbContext();
+      if(HttpContext.Session.GetString("user_id") != null)
+      {
+          int current_user_id = HttpContext.Session.GetInt32("user_id").Value;
+          List<User> currentuser = dbContext.Users.Where(user => user.Id == current_user_id).ToList();
+          ViewBag.Name = currentuser.FirstOrDefault().Name;
+      }
+      string postcode = HttpContext.Request.Query["postcode"];
+      List<string> addresses = PostcodeLookup.Lookup(postcode).Result;
+      foreach(string address in addresses)
+      {
+        Console.WriteLine(address);
+      }
+      return View();
+    }    
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
