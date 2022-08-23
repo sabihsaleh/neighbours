@@ -88,12 +88,19 @@
 
     <div class="edit_details_form_container"> 
       <h5 class="edit_details_title">Edit Details</h5>
-      <form class="edit_details_form" action="/edit-details/addresses" method="get">
+      <form class="edit_details_form" action="/edit-details" method="post">
         <div class="form_input_fields">
+          <label for="address">Select your address:</label>
+            <select id="address" name="address">
+              @foreach(string address in ViewBag.Addresses)
+              {
+                <option value="@address">@address</option>
+              }
+            </select>
           <label>Phone Number</label>
           <input type='text' size="22" id='phonenumber' name='phonenumber' placeholder='Enter your phone number'/><br><br>
         </div>
-        <input type='submit' id='submit' value='Search for address'/>
+        <input type='submit' id='submit' value='Update Details'/>
       </form>
     </div>
   </div>

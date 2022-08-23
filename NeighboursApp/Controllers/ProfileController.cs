@@ -60,6 +60,23 @@ public class ProfileController : Controller
       return View();
     }
 
+    [Route("/edit-details")]
+    [HttpPost]
+    public RedirectResult UpdateDetails() {
+      NeighboursDbContext dbContext = new NeighboursDbContext();
+      string address = HttpContext.Request.Form["address"].ToString();
+      string phonenumber = HttpContext.Request.Form["phonenumber"].ToString();
+      int current_user_id = HttpContext.Session.GetInt32("user_id").Value;
+      User currentUser = dbContext.Users.First(user => user.Id == current_user_id);
+      currentUser.Address = address;
+      currentUser.PhoneNumber = phonenumber;
+      dbContext.SaveChanges();
+      // Console.WriteLine(address);
+      // Console.WriteLine(phonenumber);
+      return new RedirectResult("/my-profile");
+
+    }
+
     [Route("/edit-details/addresses")]
     [HttpGet]
     public IActionResult SelectAddress() {
@@ -72,10 +89,11 @@ public class ProfileController : Controller
       }
       string postcode = HttpContext.Request.Query["postcode"];
       List<string> addresses = PostcodeLookup.Lookup(postcode).Result;
-      foreach(string address in addresses)
-      {
-        Console.WriteLine(address);
-      }
+      ViewBag.Addresses = addresses; 
+      // foreach(string address in addresses)
+      // {
+      //   Console.WriteLine(address);
+      // }
       return View();
     }    
 
