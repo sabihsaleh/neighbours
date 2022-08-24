@@ -13,12 +13,12 @@ public class UsersController : Controller
         _logger = logger;
     }
 
-    // [Route("/signup")]
-    // [HttpGet]
-    // public IActionResult New()
-    // {
-    //     return View();
-    // }
+    [Route("/signup")]
+    [HttpGet]
+    public IActionResult Signup()
+    {
+        return View();
+    }
 
     [Route("/users")]
     [HttpPost]

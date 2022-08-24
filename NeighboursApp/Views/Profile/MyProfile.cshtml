@@ -79,6 +79,34 @@
       background-color: #eefcd4;
       cursor: pointer;
     }
+    #edit_details {
+      background-color: white;
+      color: forestgreen;
+      border: 1px solid;
+      padding: 5px 20px;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 200ms ease-in-out;       
+    }
+
+    #edit_details:hover {
+      background-color: #eefcd4;
+      cursor: pointer;
+    }
+    #add_listing {
+      background-color: white;
+      color: forestgreen;
+      border: 1px solid;
+      padding: 5px 20px;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 200ms ease-in-out;       
+    }
+
+    #add_listing:hover {
+      background-color: #eefcd4;
+      cursor: pointer;
+    }
 
     #slogan {
     margin-top: 0;
@@ -105,7 +133,7 @@
       <p>Email: @ViewBag.User.Email</p>
       <p>Contact number: @ViewBag.User.PhoneNumber</p>
       <p>Address: @ViewBag.User.Address</p>
-      <h6 class="edit_details_message"><a  href="/edit-details" id="edit-details" >Edit details</a></h6>
+      <h6 class="edit_details_message"><a  href="/edit-details" id="edit_details" >Edit details</a></h6>
     </div>
 
     @* <p>@ViewBag.ListingsBool</p> *@
@@ -137,7 +165,7 @@
     }
     else
     {
-      <h6 class="create_listing_message"><a  href="/create-listing" id="create_listing" >Add a listing</a></h6>
+      <h6 class="create_listing_message"><a  href="/create-listing" id="add_listing" >Add a listing</a></h6>
     }
   </div>
 </body>

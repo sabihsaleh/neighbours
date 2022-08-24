@@ -57,6 +57,7 @@
     }
     .img_local {
       width: 150px;
+      margin-left: 20px;
       
     }
     .img_friendly {
@@ -85,11 +86,11 @@
       position: relative;
       text-align: center;
       padding-top: 50px;
-      padding-bottom: 50px;
+      padding-bottom: 30px;
     }
 
     .ethos_statement{
-      margin-top: 200px;
+      margin-top: 150px;
       font-size: large;
     }
 
@@ -140,72 +141,27 @@
 <body>
   <div class="text-center">
     <h1 id="slogan">Where good neighbours become good friends</h1>
-  </div>
-
-  <div class="homepage_container">
-
-    <div class="signup_container"> 
-      <h5 class="signup_title">Sign Up</h5>
-        <form class="signup_form" action="/users" method="post">
-          <div class="form_input_fields">
-            <label>Name</label>
-            <input type='text' id='name' name='name' placeholder='Name' required/><br><br>
-            <label>Email</label>
-            <input type='email' id='email' name='email' placeholder='Email' required/><br><br>
-            @* <label>Phone Number</label>
-            <input type='tel' id='phonenumber' name='phonenumber' placeholder='Phone Number' required/><br><br>
-            <label>Address</label>
-            <input type='text' id='address' name='address' placeholder='Address' required/><br><br> *@
-            <label>Password</label>
-            <input type='password' id='password' name='password' placeholder='Password' required/><br><br>
-            <label>Confirm Password</label>
-            <input type='password' id='confirm-password' name='confirm-password' placeholder='Confirm Password' required/><br><br>
-            <input type='submit' id='submit' value='Sign Up'/>
-          </div>
-
-          <div class="password_requirements">
-            <p> 
-              <em> 
-                Password requirements:
-                <ul>
-                    <li>Must be 8 or more characters long</li>
-                    <li>Must include at least one capital letter</li>
-                    <li>Must include at least one lower-case letter</li>
-                    <li>Must include at least one number</li>
-                    <li>Must include at least one special character</li>
-                </ul>
-              </em>
-            </p>
-          </div>
-
-        @* <input type="file" name="ImageData" id="ImageData" onchange="fileCheck(this);"/>   *@
-      </form>
-      <br>
-      <h6 id="message" style="color:red">@ViewBag.Message</h6>
-      <br>
-          <img class="people_planting" src="https://chopra.brightspotcdn.com/dims4/default/5ce9dc9/2147483647/strip/true/crop/693x390+61+0/resize/1200x675!/quality/90/?url=http%3A%2F%2Fchopra-brightspot.s3.amazonaws.com%2F24%2Fa8%2Ffaa072655ded01ab5619b910f567%2Fvolunteers.jpg" alt="people_planting"/>
-    </div>
-    <hr />
+  </div><br/>
     <div class="ethos_container">
       <div class="trusted">
-        <h2>TRUSTED.</h2><br/>
+        <h2>TRUSTED</h2><br/>
         <img class="img_trusted" src="https://imageio.forbes.com/b-i-forbesimg/joefolkman/files/2013/06/Trust-Fall-300x225.jpg?format=jpg&width=300" />
       </div>
       </br>
       <div class="local">
-        <h2>LOCAL.</h2><br/>
+        <h2>LOCAL</h2><br/>
         <img class="img_local" src="http://cdn2.hubspot.net/hub/208844/file-363327064-png/images/google_local-resized-600.png" /><br/><br/>
       </div>
       </br>
       <div class="friendly">
-        <h2>FRIENDLY.</h2><br/>
+        <h2>FRIENDLY</h2><br/>
         <img class="img_friendly"src="https://media.proprofs.com/images/QM/user_images/1864931/5533438825.gif" /><br/><br/>
       </div>
 
       <div class="ethos_statement">
-        <h4 class="sentence">Neighbours is where you can connect to the neighbourhood around you through giving, lending, borrowing and using each others items and skills.</h4>
-        <h4 class="sentence"> Through this trusted platform, you can build real world connections and turn neighbours into friends.</h4>
-        <h4 class="sentence" id="connect_button">Connect to your neighbour today!</h4>
+        <h4 class="sentence">Neighbours is where you can connect to the neighbourhood around you, through giving, lending, borrowing and using each other's items and skills.</h4>
+        <h4 class="sentence"> Through this trusted platform, you can build real world connections and turn neighbours into friends.</h4><br/>
+        <a href="/signup" class="sentence"id="connect_button" > Connect to your neighbour today!</a>
       </div>
     </div>
 

@@ -1,0 +1,185 @@
+<head>
+  @{
+      ViewData["Title"] = "Home Page";
+  }
+  <style>
+
+    label {
+      display:inline-block;
+      margin-right:5px;
+      text-align:right;
+      width:145px;
+    }
+
+    fieldset {
+      border:none;
+      margin:0px auto;
+      width:200px;
+    }
+
+    hr {
+      border: 1px solid #1d7c1b;
+      color: #1d7c1b;
+      weight: large;
+      opacity: inherit;
+      margin-bottom: 80px;
+    }
+
+    .signup_page_container {
+      padding: 60px auto 60px;
+      position: relative;
+    }
+
+    .password_requirements {
+      color: gray;
+      margin: 50px auto 10px;
+    }
+
+    .people_planting {
+      left: 528px;
+      position: absolute;
+      top: 45px;
+      width: 700px;
+    }
+
+    .signup_container {
+      margin-left:0px;
+      margin-top:20px;
+    }
+
+    .signup_title {
+      color: #004010;
+      margin-bottom: 20px;
+    }
+
+    .img_trusted {
+      width: 150px;
+    }
+    .img_local {
+      width: 150px;
+      
+    }
+    .img_friendly {
+      width: 150px;
+    }
+
+    .trusted {
+      position:absolute;
+      top: 0;
+      left: 200px;
+    }    
+    
+    .local {
+      position:absolute;
+      top: 0;
+      left: 580px;
+    }    
+    
+    .friendly {
+      position:absolute;
+      top: 0;
+      left: 900px;
+    }
+
+    .ethos_container {
+      position: relative;
+      text-align: center;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    .ethos_statement{
+      margin-top: 200px;
+      font-size: large;
+    }
+
+     #connect_button {
+          background-color: white;
+          color: forestgreen;
+          border: 1px solid;
+          padding: 5px 20px;
+          text-decoration: none;
+          border-radius: 8px;
+          margin-left: 10px;
+          transition: all 200ms ease-in-out;       
+      }
+
+      #connect_button:hover {
+      background-color: #1d7c1b;
+      color: white;
+      cursor: pointer;
+      }
+    #slogan {
+      color: forestgreen;
+      font-style: italic;
+      border-bottom: 0.2px groove;
+      margin-top: 0;
+      padding-top: 20px;
+      padding-bottom: 34px;
+    }
+
+    #submit {
+      background-color: white;
+      border: 1px solid;
+      border-radius: 8px;
+      color: forestgreen;
+      margin-left: 10px;
+      padding: 5px 20px;
+      text-decoration: none;
+      transition: all 200ms ease-in-out;       
+    }
+
+    #submit:hover {
+      background-color: #7cba00;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="text-center">
+    <h1 id="slogan">Where good neighbours become good friends</h1>
+  </div>
+
+  <div class="signup_page_container">
+
+    <div class="signup_container"> 
+      <h5 class="signup_title">Sign Up</h5>
+        <form class="signup_form" action="/users" method="post">
+          <div class="form_input_fields">
+            <label>Name</label>
+            <input type='text' id='name' name='name' placeholder='Name' required/><br><br>
+            <label>Email</label>
+            <input type='email' id='email' name='email' placeholder='Email' required/><br><br>
+            <label>Password</label>
+            <input type='password' id='password' name='password' placeholder='Password' required/><br><br>
+            <label>Confirm Password</label>
+            <input type='password' id='confirm-password' name='confirm-password' placeholder='Confirm Password' required/><br><br>
+            <input type='submit' id='submit' value='Sign Up'/>
+          </div>
+
+          <div class="password_requirements">
+            <p> 
+              <em> 
+                Password requirements:
+                <ul>
+                    <li>Must be 8 or more characters long</li>
+                    <li>Must include at least one capital letter</li>
+                    <li>Must include at least one lower-case letter</li>
+                    <li>Must include at least one number</li>
+                    <li>Must include at least one special character</li>
+                </ul>
+              </em>
+            </p>
+          </div>
+      </form>
+      <br>
+      <h6 id="message" style="color:red">@ViewBag.Message</h6>
+      <br>
+          <img class="people_planting" src="https://chopra.brightspotcdn.com/dims4/default/5ce9dc9/2147483647/strip/true/crop/693x390+61+0/resize/1200x675!/quality/90/?url=http%3A%2F%2Fchopra-brightspot.s3.amazonaws.com%2F24%2Fa8%2Ffaa072655ded01ab5619b910f567%2Fvolunteers.jpg" alt="people_planting"/>
+    </div>
+  </div>
+</body>
+
+

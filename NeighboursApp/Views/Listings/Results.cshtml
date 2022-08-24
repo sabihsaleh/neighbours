@@ -49,6 +49,20 @@
     padding-top: 20px;
     padding-bottom: 34px;
 }
+    #search_again {
+      background-color: white;
+      color: forestgreen;
+      border: 1px solid;
+      padding: 5px 20px;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 200ms ease-in-out;       
+    }
+
+    #search_again:hover {
+      background-color: #eefcd4;
+      cursor: pointer;
+    }
 
   </style>
 </head>  
@@ -101,7 +115,7 @@ else if(ViewBag.Requirements == "")
   }
   else
   {
-    <p>No results found for your search. <a  href="/search" id="search" >Search again?</a></p>
+    <p>No results found for your search. <a  href="/search" id="search_again" >Search again?</a></p>
   }
 </div>
 </body>
