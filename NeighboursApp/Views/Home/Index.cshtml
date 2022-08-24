@@ -17,6 +17,14 @@
       width:200px;
     }
 
+    hr {
+      border: 1px solid #1d7c1b;
+      color: #1d7c1b;
+      weight: large;
+      opacity: inherit;
+      margin-bottom: 80px;
+    }
+
     .homepage_container {
       padding: 60px auto 60px;
       position: relative;
@@ -44,6 +52,63 @@
       margin-bottom: 20px;
     }
 
+    .img_trusted {
+      width: 150px;
+    }
+    .img_local {
+      width: 150px;
+      
+    }
+    .img_friendly {
+      width: 150px;
+    }
+
+    .trusted {
+      position:absolute;
+      top: 0;
+      left: 200px;
+    }    
+    
+    .local {
+      position:absolute;
+      top: 0;
+      left: 580px;
+    }    
+    
+    .friendly {
+      position:absolute;
+      top: 0;
+      left: 900px;
+    }
+
+    .ethos_container {
+      position: relative;
+      text-align: center;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    .ethos_statement{
+      margin-top: 200px;
+      font-size: large;
+    }
+
+     #connect_button {
+          background-color: white;
+          color: forestgreen;
+          border: 1px solid;
+          padding: 5px 20px;
+          text-decoration: none;
+          border-radius: 8px;
+          margin-left: 10px;
+          transition: all 200ms ease-in-out;       
+      }
+
+      #connect_button:hover {
+      background-color: #1d7c1b;
+      color: white;
+      cursor: pointer;
+      }
     #slogan {
       color: forestgreen;
       font-style: italic;
@@ -120,6 +185,30 @@
       <br>
           <img class="people_planting" src="https://chopra.brightspotcdn.com/dims4/default/5ce9dc9/2147483647/strip/true/crop/693x390+61+0/resize/1200x675!/quality/90/?url=http%3A%2F%2Fchopra-brightspot.s3.amazonaws.com%2F24%2Fa8%2Ffaa072655ded01ab5619b910f567%2Fvolunteers.jpg" alt="people_planting"/>
     </div>
+    <hr />
+    <div class="ethos_container">
+      <div class="trusted">
+        <h2>TRUSTED.</h2><br/>
+        <img class="img_trusted" src="https://imageio.forbes.com/b-i-forbesimg/joefolkman/files/2013/06/Trust-Fall-300x225.jpg?format=jpg&width=300" />
+      </div>
+      </br>
+      <div class="local">
+        <h2>LOCAL.</h2><br/>
+        <img class="img_local" src="http://cdn2.hubspot.net/hub/208844/file-363327064-png/images/google_local-resized-600.png" /><br/><br/>
+      </div>
+      </br>
+      <div class="friendly">
+        <h2>FRIENDLY.</h2><br/>
+        <img class="img_friendly"src="https://media.proprofs.com/images/QM/user_images/1864931/5533438825.gif" /><br/><br/>
+      </div>
+
+      <div class="ethos_statement">
+        <h4 class="sentence">Neighbours is where you can connect to the neighbourhood around you through giving, lending, borrowing and using each others items and skills.</h4>
+        <h4 class="sentence"> Through this trusted platform, you can build real world connections and turn neighbours into friends.</h4>
+        <h4 class="sentence" id="connect_button">Connect to your neighbour today!</h4>
+      </div>
+    </div>
+
   </div>
 </body>
 
