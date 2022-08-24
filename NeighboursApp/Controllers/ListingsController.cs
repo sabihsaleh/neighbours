@@ -164,6 +164,31 @@ public class ListingsController : Controller
       return new RedirectResult("/my-profile");
     }
 
+    [Route("/edit-listing")]
+    [HttpGet]
+    public IActionResult Edit() {
+      int listing_id = Convert.ToInt32(HttpContext.Request.Query["listing-id"]);
+      NeighboursDbContext dbContext = new NeighboursDbContext();
+      Listing currentListing = dbContext.Listings.First(listing => listing.Id == listing_id);
+      ViewBag.Listing = currentListing;
+      return  View();
+    }
+     [Route("/edit-listing")]
+    [HttpPost]
+    public RedirectResult SaveEdit() {
+      int listing_id = Convert.ToInt32(HttpContext.Request.Form["listing-id"]);
+      NeighboursDbContext dbContext = new NeighboursDbContext();
+      Listing currentListing = dbContext.Listings.First(listing => listing.Id == listing_id);
+      string item_service = HttpContext.Request.Form["item_service"].ToString();
+      string description = HttpContext.Request.Form["description"].ToString();
+      string location = HttpContext.Request.Form["location"].ToString();
+      currentListing.Item_Service = item_service;
+      currentListing.Description = description;
+      currentListing.Location = location;
+      dbContext.SaveChanges();
+      return new RedirectResult("/my-profile");
+    }
+
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
