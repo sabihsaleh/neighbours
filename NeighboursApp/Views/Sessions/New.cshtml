@@ -107,8 +107,12 @@
     <p class="no_account">Don't have an account yet? <a  href="/signup" id="signup" >Sign Up</a></p>
 
     <br>
+      @if(ViewBag.ErrorMessage != null){
       <h6 id="message" style="color:red">@ViewBag.ErrorMessage</h6>
+      }
+     @if(ViewBag.SuccessMessage != null){
       <h6 id="message" style="color:green">@ViewBag.SuccessMessage</h6>
+     }
     <br>
   </div>
 </body>

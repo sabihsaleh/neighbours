@@ -17,19 +17,6 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult Index()
     {
-        string errorInfo = HttpContext.Request.Query["error"];
-        switch(errorInfo)
-        {
-            case "existinguser":
-            ViewBag.Message = "An account with that email address already exists. Please try again.";
-            break;
-            case "password":
-            ViewBag.Message = "Your password must contain at least 7 characters, a special character, and a number.";
-            break;
-            case "nonmatchingpassword":
-            ViewBag.Message = "The passwords do not match. Please try again.";
-            break;
-        }
         if(HttpContext.Session.GetString("user_id") != null)
         {
             int user_id = HttpContext.Session.GetInt32("user_id").Value;
