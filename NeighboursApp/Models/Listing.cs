@@ -8,6 +8,7 @@ public class Listing
   public string? Item_Service {get; set;}
   public string? Description {get; set;}
   public string? Location {get; set;}
+  public bool Display {get; set;} = true;
   public int UserId {get; set;}
   public User? User {get; set;}
  

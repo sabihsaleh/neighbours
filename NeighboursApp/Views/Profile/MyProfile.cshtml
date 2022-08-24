@@ -42,12 +42,43 @@
       text-align: left;
     }
 
+
     @* .time_posted {
       position: absolute; 
       top: 24px !important;
       left: 5px !important;
       font-size: x-small;
     } *@
+
+    #remove {
+    background-color: white;
+    color: forestgreen;
+    border: 1px solid;
+    padding: 5px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 200ms ease-in-out;       
+    }
+
+    #remove:hover {
+      background-color: #eefcd4;
+      cursor: pointer;
+    }
+
+    #edit {
+    background-color: white;
+    color: forestgreen;
+    border: 1px solid;
+    padding: 5px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 200ms ease-in-out;       
+    }
+
+    #edit:hover {
+      background-color: #eefcd4;
+      cursor: pointer;
+    }
 
     #slogan {
     margin-top: 0;
@@ -91,6 +122,14 @@
             <p class="listed_requirements">Item/Service: <em>@listing.Item_Service</em></p>
             <p class="listed_location">Location: <em>@listing.Location</em></p>
             <p class="listed_description">Description: <em>@listing.Description</em></p>
+            <form action="/edit-listing" method="get">
+              <input type='hidden' id='listing-id' name='listing-id' value='@listing.Id'/>
+              <input type='submit' id='edit' value='Edit listing'/>
+            </form>
+            <form action="/remove-listing" method="post">
+              <input type='hidden' id='listing-id' name='listing-id' value='@listing.Id'/>
+              <input type='submit' id='remove' value='Remove listing'/>
+            </form>
           </div>
         </li>
       }

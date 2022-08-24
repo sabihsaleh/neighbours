@@ -58,19 +58,19 @@ public class ListingsController : Controller
       }
       else if(requirements == "")
       {
-        List<Listing> listings = dbContext.Listings.Where(listing => listing.Location.ToLower().Contains(location.ToLower())).ToList();      
+        List<Listing> listings = dbContext.Listings.Where(listing => listing.Location.ToLower().Contains(location.ToLower()) && listing.Display == true).ToList();      
         ViewBag.Listings = listings;
         ViewBag.ListingsBool = listings.Any().ToString();
       }
       else if(location == "")
       {
-        List<Listing> listings = dbContext.Listings.Where(listing => listing.Item_Service.ToLower().Contains(requirements.ToLower())).ToList();      
+        List<Listing> listings = dbContext.Listings.Where(listing => listing.Item_Service.ToLower().Contains(requirements.ToLower()) && listing.Display == true).ToList();      
         ViewBag.Listings = listings;
         ViewBag.ListingsBool = listings.Any().ToString();
       }
       else
       {
-        List<Listing> listings = dbContext.Listings.Where(listing => listing.Location.ToLower().Contains(location.ToLower()) && listing.Item_Service.ToLower().Contains(requirements.ToLower())).ToList();      
+        List<Listing> listings = dbContext.Listings.Where(listing => listing.Location.ToLower().Contains(location.ToLower()) && listing.Item_Service.ToLower().Contains(requirements.ToLower()) && listing.Display == true).ToList();      
         ViewBag.Listings = listings;
         ViewBag.ListingsBool = listings.Any().ToString();
       }
@@ -89,7 +89,7 @@ public class ListingsController : Controller
           List<User> users = dbContext.Users.Where(user => user.Id == user_id).ToList();
           ViewBag.Name = users.FirstOrDefault().Name;
       }
-        List<Listing> listings = dbContext.Listings.ToList();      
+        List<Listing> listings = dbContext.Listings.Where(listing => listing.Display == true).ToList();      
         ViewBag.Listings = listings;
       return View();
     }
@@ -149,6 +149,42 @@ public class ListingsController : Controller
       // listing.DateTimePosted.ToString("dddd, dd MMMM yyyy hh:mm tt");
       NeighboursDbContext dbContext = new NeighboursDbContext();
       dbContext.Listings.Add(listing);
+      dbContext.SaveChanges();
+      return new RedirectResult("/my-profile");
+    }
+
+    [Route("/remove-listing")]
+    [HttpPost]
+    public RedirectResult Remove() {
+      int listing_id = Convert.ToInt32(HttpContext.Request.Form["listing-id"]);
+      NeighboursDbContext dbContext = new NeighboursDbContext();
+      Listing currentListing = dbContext.Listings.First(listing => listing.Id == listing_id);
+      currentListing.Display = false;
+      dbContext.SaveChanges();
+      return new RedirectResult("/my-profile");
+    }
+
+    [Route("/edit-listing")]
+    [HttpGet]
+    public IActionResult Edit() {
+      int listing_id = Convert.ToInt32(HttpContext.Request.Query["listing-id"]);
+      NeighboursDbContext dbContext = new NeighboursDbContext();
+      Listing currentListing = dbContext.Listings.First(listing => listing.Id == listing_id);
+      ViewBag.Listing = currentListing;
+      return  View();
+    }
+     [Route("/edit-listing")]
+    [HttpPost]
+    public RedirectResult SaveEdit() {
+      int listing_id = Convert.ToInt32(HttpContext.Request.Form["listing-id"]);
+      NeighboursDbContext dbContext = new NeighboursDbContext();
+      Listing currentListing = dbContext.Listings.First(listing => listing.Id == listing_id);
+      string item_service = HttpContext.Request.Form["item_service"].ToString();
+      string description = HttpContext.Request.Form["description"].ToString();
+      string location = HttpContext.Request.Form["location"].ToString();
+      currentListing.Item_Service = item_service;
+      currentListing.Description = description;
+      currentListing.Location = location;
       dbContext.SaveChanges();
       return new RedirectResult("/my-profile");
     }
