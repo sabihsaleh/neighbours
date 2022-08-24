@@ -31,6 +31,7 @@ public class SessionsController : Controller
         {
           ViewBag.SuccessMessage = "You have been signed out.";
         }
+        ViewBag.DisplaySignIn = false;
         return View();
     }
 

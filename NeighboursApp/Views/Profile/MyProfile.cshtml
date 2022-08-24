@@ -49,6 +49,21 @@
       font-size: x-small;
     } *@
 
+    #remove {
+    background-color: white;
+    color: forestgreen;
+    border: 1px solid;
+    padding: 5px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 200ms ease-in-out;       
+    }
+
+    #remove:hover {
+      background-color: #eefcd4;
+      cursor: pointer;
+    }
+
     #slogan {
     margin-top: 0;
     color: forestgreen;
@@ -91,6 +106,10 @@
             <p class="listed_location">Location: <em>@listing.Location</em></p>
             <p class="listed_requirements">Item/Service: <em>@listing.Item_Service</em></p>
             <p class="listed_description">Description: <em>@listing.Description</em></p>
+            <form action="/remove-listing" method="post">
+              <input type='hidden' id='listing-id' name='listing-id' value='@listing.Id'/>
+              <input type='submit' id='remove' value='Remove listing'/>
+            </form>
           </div>
         </li>
       }
